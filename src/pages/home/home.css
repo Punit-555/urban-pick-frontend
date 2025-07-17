@@ -1,0 +1,43 @@
+.searchbox-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    gap: 10px;
+        color: #0f171e;
+    input{
+        width: 100%;
+         max-width: 550px;
+         background-color: #eee;
+         color: #0f171e;
+    }
+    .searchBtn{
+        width: 120px;
+        padding: 8px;
+        border: none;
+        background-color: #eee;
+        color: grey;
+        border-radius: 4px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 3px;
+            color: #0f171e;
+        img{
+            width: 20px;
+            height: auto;
+            background: none;
+        }
+
+    }
+
+  
+
+}
+
+  .product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+  padding: 2.5rem;
+}
