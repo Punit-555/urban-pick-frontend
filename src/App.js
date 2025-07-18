@@ -7,14 +7,14 @@ import Home from './pages/home/Home';
 // import "slick-carousel/slick/slick.css";
 // import "slick-carousel/slick/slick-theme.css";
 function App() {
-  const [loadingSplashScreen, setLoadingSplashScreen] = useState(true);
+  const [loadingSplashScreen, setLoadingSplashScreen] = useState(false);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoadingSplashScreen(false);
-    }, 2000);
-    return () => clearTimeout(timer);
-  }, []);
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     setLoadingSplashScreen(false);
+  //   }, 2000);
+  //   return () => clearTimeout(timer);
+  // }, []);
 
   if (loadingSplashScreen) {
     return (

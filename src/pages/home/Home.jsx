@@ -9,6 +9,8 @@ import "./home.css"
 import searchIcon from "../../assets/search.png";
 import axios from "axios";
 import Card from "../../components/card/Card";
+import Footer from "../../components/footer/Footer";
+ 
 
 const Home = () => {
   const { user } = useSelector((state) => state.auth);
@@ -69,6 +71,8 @@ const Home = () => {
       </div>
 
     </motion.div>
+
+    <Footer/>
     </div>
 
 
