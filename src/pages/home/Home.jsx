@@ -16,10 +16,7 @@ const Home = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const handleLogout = () => {
-    dispatch(logoutUser());
-    navigate("/");
-  };
+  
 
   const fetchAllProductDetails =  async() =>{
        try {

@@ -1,14 +1,13 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import { useEffect, useState } from 'react';
-import logo from './assets/logo.svg'; // replace with your actual path
+import logo from './assets/logo.svg';
 import Login from './pages/login/Login';
 import Home from './pages/home/Home';
-// import "slick-carousel/slick/slick.css";
-// import "slick-carousel/slick/slick-theme.css";
+import { useSelector } from 'react-redux';
 function App() {
   const [loadingSplashScreen, setLoadingSplashScreen] = useState(true);
-
+ const users  = useSelector((state) => state.users);
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoadingSplashScreen(false);
@@ -24,11 +23,12 @@ function App() {
       </div>
     );
   }
-
+console.log("users",users);
   return (
     <Routes>
       <Route path='/' element={<Login />} />
       <Route path='/home' element={<Home />} />
+      <Route path='/about' element={<Home />} />
     </Routes>
   );
 }
