@@ -1,10 +1,24 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import logo from '../../assets/logo.svg';
 import './header.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { m } from 'framer-motion';
+
 
 function Header() {
+  const [openMenu, setOpenMenu] = useState(false);
+ 
+ const users  = useSelector((state) => state).auth.users;
+
+  const toggleMenu = () => {
+    setOpenMenu(!openMenu);
+  };
+
+  console.log("User",users);
+
   return (
     <nav>
       <div className='flexbox'>
@@ -23,7 +37,18 @@ function Header() {
 
       <div className='navSearch'>
         <input type="search" placeholder='Search' />
-        <FontAwesomeIcon icon={faUser} />
+
+        <div className="userIconWrapper">
+          <FontAwesomeIcon icon={faUser} onClick={toggleMenu} className="userIcon" />
+
+          {openMenu && (
+            <ul className="dropdownMenu">
+              <li><Link to={'/my-profile'}>My Profile</Link></li>
+              <li><Link to={'/'}>Settings</Link></li>
+              <li><button>Logout</button></li>
+            </ul>
+          )}
+        </div>
       </div>
     </nav>
   );

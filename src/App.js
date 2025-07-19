@@ -5,9 +5,9 @@ import logo from './assets/logo.svg';
 import Login from './pages/login/Login';
 import Home from './pages/home/Home';
 import { useSelector } from 'react-redux';
+import MyProfile from './pages/myProfile/MyProfile';
 function App() {
   const [loadingSplashScreen, setLoadingSplashScreen] = useState(true);
- const users  = useSelector((state) => state.users);
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoadingSplashScreen(false);
@@ -23,12 +23,12 @@ function App() {
       </div>
     );
   }
-console.log("users",users);
   return (
     <Routes>
       <Route path='/' element={<Login />} />
       <Route path='/home' element={<Home />} />
       <Route path='/about' element={<Home />} />
+       <Route path='/my-profile' element={<MyProfile />} />
     </Routes>
   );
 }
