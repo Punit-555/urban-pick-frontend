@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, {useState } from 'react';
 import logo from '../../assets/logo.svg';
 import './header.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { m } from 'framer-motion';
 
 
 function Header() {
   const [openMenu, setOpenMenu] = useState(false);
+  const navigate = useNavigate();
  
  const users  = useSelector((state) => state).auth.users;
 
@@ -18,6 +18,10 @@ function Header() {
   };
 
   console.log("User",users);
+
+  const logoutHandler = () => {
+   navigate('/')
+  }
 
   return (
     <nav>
@@ -45,7 +49,7 @@ function Header() {
             <ul className="dropdownMenu">
               <li><Link to={'/my-profile'}>My Profile</Link></li>
               <li><Link to={'/'}>Settings</Link></li>
-              <li><button>Logout</button></li>
+              <li><button onClick={logoutHandler}>Logout</button></li>
             </ul>
           )}
         </div>

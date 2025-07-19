@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import "./login.css";
-import logo from "../../assets/logo.svg"
+import logo from "../../assets/logo.svg";
 import { loginUser } from "../../redux/features/auth/authSlice";
+import { hideSuccessModal, showSuccessModal } from "../../redux/features/modals/modalSlice";
 
 const Login = () => {
   const [formData, setFormData] = useState({ username: "", password: "" });
@@ -15,18 +16,27 @@ const Login = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // fake login
-    if (formData.username && formData.password) {
-      dispatch(loginUser({ username: formData.username }));
-      navigate("/home");
-    }
-  };
+ 
+const handleSubmit = (e) => {
+  e.preventDefault();
+
+  if (formData.username && formData.password) {
+    dispatch(loginUser({ username: formData.username }));
+
+    // ✅ Show success modal
+    dispatch(showSuccessModal("Login successful!"));
+
+    // ✅ Delay to allow user to see the modal, then hide modal and navigate
+    setTimeout(() => {
+      dispatch(hideSuccessModal());  // close modal first
+      navigate("/home");      // then navigate
+    }, 2000);  // you can adjust the delay (in ms)
+  }
+};
 
   return (
     <div className="log-form">
-     <h2>Login to your account</h2>
+      <h2>Login to your account</h2>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
