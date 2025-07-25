@@ -7,6 +7,7 @@ import Home from './pages/home/Home';
 import { useSelector } from 'react-redux';
 import MyProfile from './pages/myProfile/MyProfile';
 import SuccessModal from './components/success/SuccessModal';
+import ProductDetails from './pages/productDetails/ProductDetails';
 function App() {
   const [loadingSplashScreen, setLoadingSplashScreen] = useState(true);
   useEffect(() => {
@@ -31,6 +32,7 @@ function App() {
       <Route path='/home' element={<Home />} />
       <Route path='/about' element={<Home />} />
        <Route path='/my-profile' element={<MyProfile />} />
+       <Route path='/productDetails' element={<ProductDetails/>}/>
     </Routes>
     <SuccessModal />
     </>

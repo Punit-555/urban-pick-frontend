@@ -1,5 +1,6 @@
 import React from "react";
 import "./card.css";
+import { Link } from "react-router-dom";
 
 const Card = ({ product }) => {
   return (
@@ -13,7 +14,7 @@ const Card = ({ product }) => {
         <span className="category">{product.category}</span>
      <div className="card-buttons">
           <button className="btn-outline">+ Add to Cart</button>
-          <button className="btn-filled">+ Buy Now</button>
+           <button className="btn-filled"><Link to="/ProductDetails"> + Buy Now</Link></button>
       </div>
       </div>
 
