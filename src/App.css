@@ -79,7 +79,7 @@ body{
 .home-video {
   top: 0;
   left: 0;
-  width: 98vw;
+  width: 100vw;
   height: 80vh;
   object-fit: cover;
   z-index: -1;
