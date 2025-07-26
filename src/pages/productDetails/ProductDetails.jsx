@@ -5,15 +5,27 @@ import { motion } from "framer-motion";
 
 function ProductDetails() {
   return (
-    <motion.div  initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.9 }}
-      viewport={{ once: true }}>
-      <div className="flexContainer">
-        <img src={shirt1} alt=""  height={200} width={200}/>
-        <h3>John Hardy Women's Legends Naga Gold & Silver Dragon</h3>
+    
+        <section className="flexContainer">
+      <div >
+        <img src={shirt1} alt=""  height={400} width={300}/>
+        <button>ADD TO CART</button>
+        <button>BUY NOW</button>
+        
       </div>
-    </motion.div>
+
+      <div>
+        <p>DEEMON</p>
+        <p>John Hardy Women's Legends Naga Gold & Silver Dragon</p>
+        <p>Special price</p>
+
+        <p>$308 <span>$589</span> <span> 35% off</span> </p>
+        <p><span>4</span> 6,254 rating and 424 reviews</p>
+
+      </div>
+
+      </section>
+  
   )
 }
 
