@@ -71,8 +71,6 @@ function MyProfile() {
         </div>
       </div>
     </div>
-      <Footer />
-    
     </>
   );
 }

@@ -4,12 +4,14 @@ import { useEffect, useState } from 'react';
 import logo from './assets/logo.svg';
 import Login from './pages/login/Login';
 import Home from './pages/home/Home';
-import { useSelector } from 'react-redux';
 import MyProfile from './pages/myProfile/MyProfile';
-import SuccessModal from './components/success/SuccessModal';
 import ProductDetails from './pages/productDetails/ProductDetails';
+import SuccessModal from './components/success/SuccessModal';
+import Layout from './components/layout/Layout';
+
 function App() {
   const [loadingSplashScreen, setLoadingSplashScreen] = useState(true);
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoadingSplashScreen(false);
@@ -25,18 +27,20 @@ function App() {
       </div>
     );
   }
+
   return (
     <>
-       <Routes>
-      <Route path='/' element={<Login />} />
-      <Route path='/home' element={<Home />} />
-      <Route path='/about' element={<Home />} />
-       <Route path='/my-profile' element={<MyProfile />} />
-       <Route path='/productDetails' element={<ProductDetails/>}/>
-    </Routes>
-    <SuccessModal />
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route element={<Layout />}>
+          <Route path="/home" element={<Home />} />
+          <Route path="/about" element={<Home />} />
+          <Route path="/my-profile" element={<MyProfile />} />
+          <Route path="/productDetails" element={<ProductDetails />} />
+        </Route>
+      </Routes>
+      <SuccessModal />
     </>
- 
   );
 }
 

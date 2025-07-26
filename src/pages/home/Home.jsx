@@ -36,7 +36,6 @@ const Home = () => {
 
   return (
     <div >
-      <Header />
        <video
        src={navVideo}
   autoPlay
@@ -45,7 +44,7 @@ const Home = () => {
   className="home-video"
     />
      
-<motion.div
+    <motion.div
       className="hero-section app-container"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -68,8 +67,6 @@ const Home = () => {
       </div>
 
     </motion.div>
-
-    <Footer/>
     </div>
 
 
