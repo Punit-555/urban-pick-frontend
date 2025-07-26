@@ -1,5 +1,3 @@
-import Header from "../../components/header/Header"
-import Footer from "../../components/footer/Footer"
 import shirt1 from "../../assets/shirt1.jpg"
 import { motion } from "framer-motion";
 

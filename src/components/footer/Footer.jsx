@@ -9,7 +9,10 @@ function Footer() {
         <div className='mainPart'>
        <div className='logoCenter'>
         <img src={logo} alt="UrbanPick Logo" width={40} height={40} />
-       <h3>UrbanPick</h3>
+       <h3>UrbanPick  </h3><br />
+       <span style={{fontSize: '0.8rem', color: 'gray'}}>Developed By &#9829;
+ <b>Fiza </b>&#9829;
+</span>  
        </div>
        <div className='flexbox'>
         <Link to ="/">Terms and Privacy Notice</Link>

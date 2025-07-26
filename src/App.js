@@ -8,6 +8,7 @@ import MyProfile from './pages/myProfile/MyProfile';
 import ProductDetails from './pages/productDetails/ProductDetails';
 import SuccessModal from './components/success/SuccessModal';
 import Layout from './components/layout/Layout';
+import Services from './pages/services/Services';
 
 function App() {
   const [loadingSplashScreen, setLoadingSplashScreen] = useState(true);
@@ -37,6 +38,7 @@ function App() {
           <Route path="/about" element={<Home />} />
           <Route path="/my-profile" element={<MyProfile />} />
           <Route path="/productDetails" element={<ProductDetails />} />
+          <Route path="/services" element={<Services />} />
         </Route>
       </Routes>
       <SuccessModal />

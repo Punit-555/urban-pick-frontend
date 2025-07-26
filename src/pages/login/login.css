@@ -26,6 +26,7 @@ margin-top: 15%;
   display: block;
   width: 100%;
   padding: 2em;
+  background-color: black;
 }
 
 .log-form h2 {
@@ -49,7 +50,8 @@ margin-top: 15%;
   border: none;
   border-bottom: 1px solid #1FB5B5;
   padding-bottom: 1.25em;
-  color: #757575;
+    color: #757575;
+    background-color: black;
 }
 
 .log-form input:focus {

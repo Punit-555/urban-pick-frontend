@@ -31,11 +31,10 @@ function Header() {
       </div>
 
       <ul className='navFlex'>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Services</a></li>
+        <li><Link to="/home">Home</Link></li>
+        <li><Link to="/about">About</Link></li>
+        <li><Link to={'/services'}>Services</Link></li>
         <li><a href="#">Contact Us</a></li>
-        <li><a href="#">My Stuff</a></li>
         <li><a href="#">Subscription</a></li>
       </ul>
 

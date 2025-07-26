@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import "./myProfile.css";
 import stylishImage from "../../assets/stylishImage.jpg";
-import Footer from '../../components/footer/Footer';
 import { useSelector } from 'react-redux';
 
 function MyProfile() {
@@ -30,7 +29,7 @@ function MyProfile() {
   return (
     <>
     <div className='profileContainer'>
-      <h1>My Profile</h1>
+      <h2>My Profile</h2>
 
       <div className='profileContent'>
         {/* Left Side - Image */}
