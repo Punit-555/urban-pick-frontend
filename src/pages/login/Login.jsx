@@ -36,7 +36,7 @@ const handleSubmit = (e) => {
 
   return (
     <div className="log-form">
-      <h2>Login to your account</h2>
+      <h2 className="loginFlexbox"> <img width={35} height={30} src={logo} alt="" /> Login to your account</h2>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
