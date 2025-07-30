@@ -1,5 +1,5 @@
 import shirt1 from "../../assets/shirt1.jpg"
-import { motion } from "framer-motion";
+import "./productDetails.css"
 
 
 
@@ -9,18 +9,20 @@ function ProductDetails() {
         <section className="flexContainer">
       <div >
         <img src={shirt1} alt=""  height={400} width={300}/>
+        <div className="btn3">
         <button>ADD TO CART</button>
-        <button>BUY NOW</button>
+        <button className="buy-btn">BUY NOW</button>
+        </div>
         
       </div>
 
       <div>
-        <p>DEEMON</p>
+        <p className="headPra">DEEMON</p>
         <p>John Hardy Women's Legends Naga Gold & Silver Dragon</p>
-        <p>Special price</p>
+        <p className="specialPrice">Special price</p>
 
-        <p>$308 <span>$589</span> <span> 35% off</span> </p>
-        <p><span>4</span> 6,254 rating and 424 reviews</p>
+        <p className="price2">$308 <span className="priceless">$589</span> <span className="offColor"> 35%off</span> </p>
+        <p className="rating"><span>4</span> 6,254 rating and 424 reviews</p>
 
       </div>
 

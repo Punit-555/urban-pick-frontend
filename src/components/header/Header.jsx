@@ -23,18 +23,21 @@ function Header() {
    navigate('/')
   }
 
+  const gotoHomePage = () =>{ 
+    navigate('/home');
+  }
+
   return (
     <nav>
-      <div className='flexbox'>
+      <div className='flexbox' onClick={gotoHomePage}>
         <img src={logo} alt="UrbanPick Logo" width={40} height={40} />
         <h3>UrbanPick</h3>
       </div>
 
       <ul className='navFlex'>
         <li><Link to="/home">Home</Link></li>
-        <li><Link to="/about">About</Link></li>
         <li><Link to={'/services'}>Services</Link></li>
-        <li><a href="#">Contact Us</a></li>
+        <li><Link to={'/contact-us'}>Contact Us</Link></li>
         <li><a href="#">Subscription</a></li>
       </ul>
 
