@@ -1,0 +1,48 @@
+.cardContainer {
+  width: 300px;
+  /* height: 100% */
+  padding: 25px 22px;
+  border-radius: 10px;
+  background-color: #1a242f;
+  border: 1px solid #2a2f35;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+
+
+  .price2 {
+    font-size: 36px;
+    padding: 7px 0px;
+    span {
+      font-size: 16px;
+      color: #8197a4;
+      font-weight: 500;
+    }
+  }
+
+  .btn4 {
+    color: #199da5;
+    border: 2px solid #199da5;
+    padding: 11px 72px;
+    background-color: #1a242f;
+    font-weight: bold;
+    font-size: 15px;
+    border-radius: 7px;
+    margin: 14px auto;
+  }
+  .btn4:hover {
+    background-color: #2980b9;
+    color: #fff;
+    border: none;
+  }
+  p {
+    padding: 7px 0px;
+    font-size: 16px;
+    i{
+      color: #199da5;
+      font-size: 15px;
+    }
+  }
+}
+.cardContainer:hover {
+  border-color: #1fb5bf;
+}

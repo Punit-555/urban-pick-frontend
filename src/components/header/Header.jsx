@@ -37,8 +37,8 @@ function Header() {
       <ul className='navFlex'>
         <li><Link to="/home">Home</Link></li>
         <li><Link to={'/services'}>Services</Link></li>
-        <li><Link to={'/contact-us'}>Contact Us</Link></li>
-        <li><a href="#">Subscription</a></li>
+        <li><Link to={'/contactUs'}>Contact Us</Link></li>
+        <li><Link to ={'/subscription'}>Subscription</Link></li>
       </ul>
 
       <div className='navSearch'>

@@ -1,0 +1,24 @@
+.maindiv {
+  
+  .heading2 {
+    margin-top: 40px;
+    font-size: 38px;
+    text-align: center;
+  }
+
+  .para2{
+    color: #9eaebf;
+    font-size: 15px;
+    margin: 18px;
+    text-align: center;
+  }
+
+  .flexbox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin: 40px auto;
+    height: 100%;
+  }
+}
