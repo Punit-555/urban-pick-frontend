@@ -11,13 +11,14 @@
   
  p{
     font-size: 16.5px;
+    color: #9eaebf;;
  }
 
   .field{
     padding: 13px 7px;
     border-radius: 5px;
     border: none;
-    background-color: #1a242f;;
+    background-color: #1a242f;
     font-size: 15px;
   }
   .saveBtn2 {

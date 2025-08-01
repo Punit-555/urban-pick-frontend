@@ -6,7 +6,7 @@ function ContactUs() {
         <p>We'd love to hear from you! Fill out the form and we'll be in touch <br />shortly</p>
         <input className='field' type="text" placeholder='Your Name' />
         <input className='field' type="text" placeholder='Your Email' />
-    <textarea  className="field" rows="6" cols="30" placeholder="enter address"></textarea>
+    <textarea  className="field" rows="6" cols="30" placeholder="Your Message"></textarea>
 <button className='saveBtn2'>Send Message</button>
     </div>
   )

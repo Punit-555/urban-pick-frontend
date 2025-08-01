@@ -17,12 +17,15 @@ const Home = () => {
   const [productData, setProductData] = useState([]);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [searchTerm, setSearchTerm] = useState("");
+
 
   
 
   const fetchAllProductDetails =  async() =>{
        try {
-         const response = await axios.get('https://fakestoreapi.com/products');
+         const response = await axios.get('https://api.escuelajs.co/api/v1/products');
+        console.log("RE", response)
          setProductData(response.data);
          console.log(response);
        } catch (error) {
@@ -33,6 +36,10 @@ const Home = () => {
   useEffect(()=>{
    fetchAllProductDetails();
   },[])
+console.log("P", productData);
+const filteredProducts = productData.filter((product) =>
+  product.title.toLowerCase().includes(searchTerm.toLowerCase())
+);
 
   return (
     <div >
@@ -53,15 +60,20 @@ const Home = () => {
     >
 
       <div className="searchbox-container">
-        <input type="search" name="searchbox" placeholder="Enter your choice "/>
+<input 
+  type="search" 
+  name="searchbox" 
+  placeholder="Enter your title of the product" 
+  value={searchTerm}
+  onChange={(e) => setSearchTerm(e.target.value)}
+/>
         <button className="searchBtn"> <img src={searchIcon} alt="" /> Search</button>
       </div>
 
       <div className="product-grid">
         {
-          productData.map(( product)=>{
-            return <Card product={product} />
-          })
+          filteredProducts.map((product) => <Card key={product.id} product={product} />)
+
         }
         
       </div>
