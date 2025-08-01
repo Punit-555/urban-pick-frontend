@@ -11,7 +11,7 @@ function SubscriptionCard({props}) {
         <p><i className="fa-solid fa-check"></i>{props.freeDelivery}</p>
         <p>{props.cashback}</p>
         <p>{props.member}</p>
-        <p>{props. benefits}</p>
+        <p>{props.benefits}</p>
         <p>{props.return}</p>
         <p>{props.gift}</p>
         <button className="btn4">{props.selectSubscription}</button>

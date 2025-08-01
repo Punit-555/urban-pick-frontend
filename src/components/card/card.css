@@ -103,3 +103,10 @@
   background-color: #1f80e0;
   color: white;
 }
+
+
+.show-more-btn{
+  background-color: none;
+  color: gray;
+  outline: none;
+}
