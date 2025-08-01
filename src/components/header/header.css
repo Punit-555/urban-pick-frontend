@@ -1,54 +1,56 @@
+/* Base styles */
 nav {
   background-color: #0f171e;
   color: #ffffff;
-  padding: 10px 40px;
   box-shadow: 0 2px 5px #272424;
   position: sticky;
   top: 0;
   z-index: 1000;
+  width: 100%;
 }
 
-/* Top row with logo and hamburger */
+.nav-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 10px 20px;
+}
+
 .nav-top-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
 }
 
-.flexbox.logo-section {
+/* Logo section */
+.logo-section {
   display: flex;
   align-items: center;
   gap: 10px;
   cursor: pointer;
+  flex-shrink: 0;
 }
 
-/* Hamburger Icon */
-.hamburger {
-  display: none;
-  flex-direction: column;
-  gap: 4px;
-  cursor: pointer;
+.logo-section h3 {
+  margin: 0;
+  white-space: nowrap;
 }
 
-.bar {
-  width: 25px;
-  height: 3px;
-  background-color: white;
-  transition: 0.3s;
-}
-
-/* Collapsible menu (nav links + search + profile) */
-.nav-collapse {
+/* Desktop navigation */
+.desktop-nav {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin-top: 15px;
+  flex-grow: 1;
+  justify-content: space-between;
+  margin-left: 40px;
 }
 
 .navFlex {
-  list-style: none;
   display: flex;
+  list-style: none;
   gap: 30px;
+  margin: 0;
+  padding: 0;
 }
 
 .navFlex li a {
@@ -57,13 +59,14 @@ nav {
   font-weight: 500;
   font-size: 16px;
   transition: color 0.3s ease;
+  white-space: nowrap;
 }
 
 .navFlex li a:hover {
   color: #1f80e0;
 }
 
-/* Search + user icon */
+/* Search and user section */
 .navSearch {
   display: flex;
   align-items: center;
@@ -71,7 +74,7 @@ nav {
 }
 
 input[type="search"] {
-  padding: 6px 12px;
+  padding: 8px 12px;
   border-radius: 4px;
   border: none;
   outline: none;
@@ -94,22 +97,23 @@ input[type="search"]::placeholder {
 
 .userIcon {
   font-size: 20px;
-  margin-left: 10px;
   color: #fff;
+  padding: 5px;
 }
 
 .dropdownMenu {
   position: absolute;
-  top: 30px;
+  top: 100%;
   right: 0;
   background: white;
   border: 1px solid #ddd;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
-  padding: 6px;
+  padding: 0;
   list-style: none;
   z-index: 1000;
   width: 150px;
-  border-radius: 8px;
+  border-radius: 4px;
+  margin-top: 5px;
 }
 
 .dropdownMenu li {
@@ -121,13 +125,13 @@ input[type="search"]::placeholder {
 }
 
 .dropdownMenu li:hover {
-  background-color: lightcyan;
+  background-color: #f0f8ff;
 }
 
 .dropdownMenu li a,
 .dropdownMenu li button {
   text-decoration: none;
-  color: #1FB5B5;
+  color: inherit;
   background: none;
   border: none;
   width: 100%;
@@ -137,38 +141,79 @@ input[type="search"]::placeholder {
   cursor: pointer;
 }
 
-/* Responsive */
-@media screen and (max-width: 768px) {
+/* Hamburger menu - hidden by default */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.hamburger .bar {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 3px 0;
+  transition: 0.4s;
+}
+
+/* Mobile menu - hidden by default */
+.mobile-nav {
+  display: none;
+  width: 100%;
+  padding: 15px 0;
+}
+
+.mobile-nav.show {
+  display: block;
+}
+
+.mobile-navFlex {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 15px 0;
+}
+
+.mobile-navFlex li {
+  padding: 10px 0;
+}
+
+.mobile-navFlex li a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.mobile-navSearch {
+  width: 100%;
+}
+
+.mobile-navSearch input {
+  width: 100%;
+  max-width: 300px;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 992px) {
+  .desktop-nav {
+    display: none;
+  }
+
   .hamburger {
     display: flex;
   }
 
-  .nav-collapse {
-    flex-direction: column;
-    align-items: flex-start;
-    width: 100%;
-    display: none;
+  .mobile-nav.show {
+    display: block;
   }
+}
 
-  .nav-collapse.show {
-    display: flex;
+@media screen and (max-width: 576px) {
+  .nav-container {
+    padding: 10px 15px;
   }
-
-  .navFlex {
-    gap: 15px;
-    width: 100%;
-    padding-left: 0;
-    margin-top: 10px;
-    align-items: center;
-  }
-
-  .navSearch {
-    /* flex-direction: column; */
-    gap: 10px;
-    width: 100%;
-    margin: 20px 0px;
-  }
-
+  
   input[type="search"] {
     width: 100%;
   }

@@ -1,5 +1,6 @@
 .box2 {
-  width: 600px;
+  width: 100%;
+  max-width: 600px;
   margin: 60px auto;
   height: auto;
   padding: 30px 23px;

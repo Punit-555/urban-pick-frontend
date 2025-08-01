@@ -15,7 +15,7 @@ function Header() {
 
   const toggleMenu = () => {
     setIsMenuOpen((prev) => !prev);
-    setIsUserDropdownOpen(false); // Close user dropdown when menu toggled
+    setIsUserDropdownOpen(false);
   };
 
   const toggleUserDropdown = () => {
@@ -32,38 +32,53 @@ function Header() {
 
   return (
     <nav>
-      <div className="nav-top-row">
-        <div className="flexbox logo-section" onClick={gotoHomePage}>
-          <img src={logo} alt="UrbanPick Logo" width={40} height={40} />
-          <h3>UrbanPick</h3>
+      <div className="nav-container">
+        <div className="nav-top-row">
+          <div className="logo-section" onClick={gotoHomePage}>
+            <img src={logo} alt="UrbanPick Logo" width={40} height={40} />
+            <h3>UrbanPick</h3>
+          </div>
+
+          <div className="desktop-nav">
+            <ul className="navFlex">
+              <li><Link to="/home">Home</Link></li>
+              <li><Link to="/services">Services</Link></li>
+              <li><Link to="/contactUs">Contact Us</Link></li>
+              <li><Link to="/subscription">Subscription</Link></li>
+            </ul>
+
+            <div className="navSearch">
+              <input type="search" placeholder="Search" />
+              <div className="userIconWrapper">
+                <FontAwesomeIcon icon={faUser} onClick={toggleUserDropdown} className="userIcon" />
+                {isUserDropdownOpen && (
+                  <ul className="dropdownMenu">
+                    <li><Link to="/my-profile">My Profile</Link></li>
+                    <li><Link to="/">Settings</Link></li>
+                    <li><button onClick={logoutHandler}>Logout</button></li>
+                  </ul>
+                )}
+              </div>
+            </div>
+          </div>
+
+          <div className="hamburger" onClick={toggleMenu}>
+            <div className="bar"></div>
+            <div className="bar"></div>
+            <div className="bar"></div>
+          </div>
         </div>
 
-        <div className="hamburger" onClick={toggleMenu}>
-          <div className="bar"></div>
-          <div className="bar"></div>
-          <div className="bar"></div>
-        </div>
-      </div>
-
-      <div className={`nav-collapse ${isMenuOpen ? 'show' : ''}`}>
-        <ul className="navFlex">
-          <li><Link to="/home">Home</Link></li>
-          <li><Link to="/services">Services</Link></li>
-          <li><Link to="/contactUs">Contact Us</Link></li>
-          <li><Link to="/subscription">Subscription</Link></li>
-        </ul>
-
-        <div className="navSearch">
-          <input type="search" placeholder="Search" />
-          <div className="userIconWrapper">
-            <FontAwesomeIcon icon={faUser} onClick={toggleUserDropdown} className="userIcon" />
-            {isUserDropdownOpen && (
-              <ul className="dropdownMenu">
-                <li><Link to="/my-profile">My Profile</Link></li>
-                <li><Link to="/">Settings</Link></li>
-                <li><button onClick={logoutHandler}>Logout</button></li>
-              </ul>
-            )}
+        {/* Mobile menu */}
+        <div className={`mobile-nav ${isMenuOpen ? 'show' : ''}`}>
+          <ul className="mobile-navFlex">
+            <li><Link to="/home">Home</Link></li>
+            <li><Link to="/services">Services</Link></li>
+            <li><Link to="/contactUs">Contact Us</Link></li>
+            <li><Link to="/subscription">Subscription</Link></li>
+          </ul>
+          <div className="mobile-navSearch">
+            <input type="search" placeholder="Search" />
           </div>
         </div>
       </div>
