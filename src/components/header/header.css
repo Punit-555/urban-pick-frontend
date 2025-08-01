@@ -1,28 +1,48 @@
-
-.flexbox{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 10px;
-}
-
 nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   background-color: #0f171e;
   color: #ffffff;
   padding: 10px 40px;
-  height: 70px;
-  box-shadow:0 2px 5px #272424;
+  box-shadow: 0 2px 5px #272424;
   position: sticky;
   top: 0;
   z-index: 1000;
 }
 
-nav h3 {
-  height: 20px;
-  width: auto;
+/* Top row with logo and hamburger */
+.nav-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flexbox.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+/* Hamburger Icon */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  transition: 0.3s;
+}
+
+/* Collapsible menu (nav links + search + profile) */
+.nav-collapse {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
 }
 
 .navFlex {
@@ -40,10 +60,11 @@ nav h3 {
 }
 
 .navFlex li a:hover {
-  color: #1f80e0; 
+  color: #1f80e0;
 }
 
-nav div:last-child {
+/* Search + user icon */
+.navSearch {
   display: flex;
   align-items: center;
   gap: 15px;
@@ -64,45 +85,7 @@ input[type="search"]::placeholder {
   color: #888;
 }
 
-/* FontAwesome icon */
-svg {
-  color: white;
-  font-size: 20px;
-  cursor: pointer;
-  transition: color 0.3s;
-}
-
-svg:hover {
-  color: #1f80e0;
-}
-
-/* Responsive */
-@media screen and (max-width: 768px) {
-  nav {
-    flex-direction: column;
-    align-items: flex-start;
-    height: auto;
-    padding: 15px 20px;
-  }
-
-  .navFlex {
-    flex-direction: column;
-    gap: 15px;
-    margin: 15px 0;
-  }
-
-  nav div:last-child {
-    width: 100%;
-    justify-content: space-between;
-    gap: 10px;
-  }
-
-  input[type="search"] {
-    width: 100%;
-  }
-}
-
-
+/* User dropdown */
 .userIconWrapper {
   position: relative;
   display: inline-block;
@@ -112,21 +95,21 @@ svg:hover {
 .userIcon {
   font-size: 20px;
   margin-left: 10px;
-  color: #333;
+  color: #fff;
 }
 
 .dropdownMenu {
-position: absolute;
-    top: 30px;
-    right: 0;
-    background: white;
-    border: 1px solid #ddd;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
-    padding: 6px;
-    list-style: none;
-    z-index: 1000;
-    width: 150px;
-    border-radius: 8px;
+  position: absolute;
+  top: 30px;
+  right: 0;
+  background: white;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  padding: 6px;
+  list-style: none;
+  z-index: 1000;
+  width: 150px;
+  border-radius: 8px;
 }
 
 .dropdownMenu li {
@@ -138,7 +121,6 @@ position: absolute;
 }
 
 .dropdownMenu li:hover {
-  color: #1FB5B5;
   background-color: lightcyan;
 }
 
@@ -153,4 +135,41 @@ position: absolute;
   padding: 0;
   font: inherit;
   cursor: pointer;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-collapse {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    display: none;
+  }
+
+  .nav-collapse.show {
+    display: flex;
+  }
+
+  .navFlex {
+    gap: 15px;
+    width: 100%;
+    padding-left: 0;
+    margin-top: 10px;
+    align-items: center;
+  }
+
+  .navSearch {
+    /* flex-direction: column; */
+    gap: 10px;
+    width: 100%;
+    margin: 20px 0px;
+  }
+
+  input[type="search"] {
+    width: 100%;
+  }
 }

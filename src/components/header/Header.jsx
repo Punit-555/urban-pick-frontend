@@ -1,59 +1,70 @@
-import React, {useState } from 'react';
+import React, { useState } from 'react';
 import logo from '../../assets/logo.svg';
 import './header.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
-import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
-
 function Header() {
-  const [openMenu, setOpenMenu] = useState(false);
   const navigate = useNavigate();
- 
- const users  = useSelector((state) => state).auth.users;
+  const [isUserDropdownOpen, setIsUserDropdownOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const users = useSelector((state) => state.auth.users);
 
   const toggleMenu = () => {
-    setOpenMenu(!openMenu);
+    setIsMenuOpen((prev) => !prev);
+    setIsUserDropdownOpen(false); // Close user dropdown when menu toggled
   };
 
-  console.log("User",users);
+  const toggleUserDropdown = () => {
+    setIsUserDropdownOpen((prev) => !prev);
+  };
 
   const logoutHandler = () => {
-   navigate('/')
-  }
+    navigate('/');
+  };
 
-  const gotoHomePage = () =>{ 
+  const gotoHomePage = () => {
     navigate('/home');
-  }
+  };
 
   return (
     <nav>
-      <div className='flexbox' onClick={gotoHomePage}>
-        <img src={logo} alt="UrbanPick Logo" width={40} height={40} />
-        <h3>UrbanPick</h3>
+      <div className="nav-top-row">
+        <div className="flexbox logo-section" onClick={gotoHomePage}>
+          <img src={logo} alt="UrbanPick Logo" width={40} height={40} />
+          <h3>UrbanPick</h3>
+        </div>
+
+        <div className="hamburger" onClick={toggleMenu}>
+          <div className="bar"></div>
+          <div className="bar"></div>
+          <div className="bar"></div>
+        </div>
       </div>
 
-      <ul className='navFlex'>
-        <li><Link to="/home">Home</Link></li>
-        <li><Link to={'/services'}>Services</Link></li>
-        <li><Link to={'/contactUs'}>Contact Us</Link></li>
-        <li><Link to ={'/subscription'}>Subscription</Link></li>
-      </ul>
+      <div className={`nav-collapse ${isMenuOpen ? 'show' : ''}`}>
+        <ul className="navFlex">
+          <li><Link to="/home">Home</Link></li>
+          <li><Link to="/services">Services</Link></li>
+          <li><Link to="/contactUs">Contact Us</Link></li>
+          <li><Link to="/subscription">Subscription</Link></li>
+        </ul>
 
-      <div className='navSearch'>
-        <input type="search" placeholder='Search' />
-
-        <div className="userIconWrapper">
-          <FontAwesomeIcon icon={faUser} onClick={toggleMenu} className="userIcon" />
-
-          {openMenu && (
-            <ul className="dropdownMenu">
-              <li><Link to={'/my-profile'}>My Profile</Link></li>
-              <li><Link to={'/'}>Settings</Link></li>
-              <li><button onClick={logoutHandler}>Logout</button></li>
-            </ul>
-          )}
+        <div className="navSearch">
+          <input type="search" placeholder="Search" />
+          <div className="userIconWrapper">
+            <FontAwesomeIcon icon={faUser} onClick={toggleUserDropdown} className="userIcon" />
+            {isUserDropdownOpen && (
+              <ul className="dropdownMenu">
+                <li><Link to="/my-profile">My Profile</Link></li>
+                <li><Link to="/">Settings</Link></li>
+                <li><button onClick={logoutHandler}>Logout</button></li>
+              </ul>
+            )}
+          </div>
         </div>
       </div>
     </nav>
